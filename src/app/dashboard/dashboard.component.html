@@ -1,57 +1,223 @@
+<div class="header-container">
+  <header class="header">
+    <div class="header-content">
+      <h1>Dashboard Interativo</h1>
+    </div>
+  </header>
+</div>
+
 <div class="dashboard-container">
-    <h1>Dashboard Interativo</h1>
-    <mat-tab-group>
-      <mat-tab label="Clientes">
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nome</th>
-              <th>Email</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let cliente of clientes">
-              <td>{{ cliente.cliente_id }}</td>
-              <td>{{ cliente.nome }}</td>
-              <td>{{ cliente.email }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </mat-tab>
-      <mat-tab label="Endereços">
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Rua</th>
-              <th>Número</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let endereco of enderecos">
-              <td>{{ endereco.endereco_id }}</td>
-              <td>{{ endereco.rua }}</td>
-              <td>{{ endereco.numero }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </mat-tab>
-      <mat-tab label="Departamentos">
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nome</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let departamento of departamentos">
-              <td>{{ departamento.departamento_id }}</td>
-              <td>{{ departamento.nome }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </mat-tab>
-    </mat-tab-group>
-  </div>
+  <mat-tab-group>
+    <mat-tab label="Clientes">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientes">
+            <td>{{ cliente.cliente_id }}</td>
+            <td>{{ cliente.nome }}</td>
+            <td>{{ cliente.email }}</td>
+            <td>{{ cliente.telefone }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+
+    <mat-tab label="Endereços">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Rua</th>
+            <th>Número</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let endereco of enderecos">
+            <td>{{ endereco.endereco_id }}</td>
+            <td>{{ endereco.rua }}</td>
+            <td>{{ endereco.numero }}</td>
+            <td>{{ endereco.bairro }}</td>
+            <td>{{ endereco.cidade }}</td>
+            <td>{{ endereco.estado }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+
+    <mat-tab label="Departamentos">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let departamento of departamentos">
+            <td>{{ departamento.departamento_id }}</td>
+            <td>{{ departamento.nome }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+
+    <mat-tab label="Funcionários">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Departamento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let funcionario of funcionarios">
+            <td>{{ funcionario.funcionario_id }}</td>
+            <td>{{ funcionario.nome }}</td>
+            <td>{{ funcionario.email }}</td>
+            <td>{{ funcionario.departamento?.nome }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+
+    <mat-tab label="Categorias">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let categoria of categorias">
+            <td>{{ categoria.categoria_id }}</td>
+            <td>{{ categoria.nome }}</td>
+            <td>{{ categoria.descricao }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+
+    <mat-tab label="Fornecedores">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Contato</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let fornecedor of fornecedores">
+            <td>{{ fornecedor.fornecedor_id }}</td>
+            <td>{{ fornecedor.nome }}</td>
+            <td>{{ fornecedor.contato }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+
+    <mat-tab label="Produtos">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Categoria</th>
+            <th>Fornecedor</th>
+            <th>Preço</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let produto of produtos">
+            <td>{{ produto.produto_id }}</td>
+            <td>{{ produto.nome }}</td>
+            <td>{{ produto.descricao }}</td>
+            <td>{{ produto.categoria?.nome }}</td>
+            <td>{{ produto.fornecedor?.nome }}</td>
+            <td>{{ produto.preco }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+
+    <mat-tab label="Pedidos">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Funcionário</th>
+            <th>Data</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pedido of pedidos">
+            <td>{{ pedido.pedido_id }}</td>
+            <td>{{ pedido.cliente?.nome }}</td>
+            <td>{{ pedido.funcionario?.nome }}</td>
+            <td>{{ pedido.data | date }}</td>
+            <td>{{ pedido.status }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+
+    <mat-tab label="ItensPedido">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Pedido</th>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Preço Unitário</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of itensPedido">
+            <td>{{ item.itempedido_id }}</td>
+            <td>{{ item.pedido_id }}</td>
+            <td>{{ item.produto?.nome }}</td>
+            <td>{{ item.quantidade }}</td>
+            <td>{{ item.preco_unitario }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+
+    <mat-tab label="Estoque">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Produto</th>
+            <th>Quantidade Disponível</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of estoque">
+            <td>{{ item.estoque_id }}</td>
+            <td>{{ item.produto?.nome }}</td>
+            <td>{{ item.quantidade_disponivel }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+  </mat-tab-group>
+</div>

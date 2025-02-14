@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CommonModule } from '@angular/common';
 
 @Component({
-    standalone: true,
     selector: 'app-dashboard',
+    standalone: true,
     imports: [ CommonModule, MatTabsModule],
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class DashboardComponent implements OnInit {
     clientes: any[] = [];
